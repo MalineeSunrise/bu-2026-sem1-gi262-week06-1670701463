@@ -26,7 +26,6 @@ namespace MidtermExam.Prob02
                 else
                 {
                     currentNode = currentNode.Next;
-                    currentNode.Value = first.Value;
                 }
             }
 
