@@ -12,7 +12,33 @@ namespace MidtermExam.Prob02
         /// <returns>LinkedList ที่ได้รับการเรียงลำดับจากน้อยไปมากแล้ว</returns>
         public LinkedList<int> SortAscending(LinkedList<int> list)
         {
-            // TODO: Implement sorting algorithm for LinkedList<int> (Ascending)
+            LinkedListNode<int> first = list.First;
+            LinkedListNode<int> currentNode = list.First.Next;
+
+
+            while (currentNode != null)
+            {
+                if (currentNode.Value < first.Value)
+                {
+                    first.Value = currentNode.Value;
+
+                }
+            }
+
+            //for (int i = 0; i < list.Count - 1; i++)
+            //{
+            //    if (currentNode.Value < first.Value)
+            //    {
+            //        first = currentNode;
+            //    }
+
+            //    else
+            //    {
+            //        currentNode = currentNode.Next;
+            //    }
+            //}
+
+            Debug.Log(list);
             return list;
         }
 
