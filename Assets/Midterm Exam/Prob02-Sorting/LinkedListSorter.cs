@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.tvOS;
 
 namespace MidtermExam.Prob02
 {
@@ -15,13 +16,17 @@ namespace MidtermExam.Prob02
             LinkedListNode<int> first = list.First;
             LinkedListNode<int> currentNode = list.First.Next;
 
-
             while (currentNode != null)
             {
                 if (currentNode.Value < first.Value)
                 {
                     first.Value = currentNode.Value;
-
+                    currentNode = currentNode.Next;
+                }
+                else
+                {
+                    currentNode = currentNode.Next;
+                    currentNode.Value = first.Value;
                 }
             }
 
@@ -49,7 +54,22 @@ namespace MidtermExam.Prob02
         /// <returns>LinkedList ที่ได้รับการเรียงลำดับจากมากไปน้อยแล้ว</returns>
         public LinkedList<int> SortDescending(LinkedList<int> list)
         {
-            // TODO: Implement sorting algorithm for LinkedList<int> (Descending)
+            LinkedListNode<int> last = list.Last;
+            LinkedListNode<int> currentNode = list.Last.Next;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Value > last.Value)
+                {
+                    last.Value = currentNode.Value;
+                    currentNode = currentNode.Previous;
+                }
+                else
+                {
+                    currentNode = currentNode.Previous;
+                }
+            }
+
             return list;
         }
     }
